@@ -1,0 +1,1024 @@
+{
+  "resourceType": "CapabilityStatement",
+  "status": "active",
+  "date": "2025-03-07T06:36:03-05:00",
+  "publisher": "Not provided",
+  "kind": "instance",
+  "software": {
+    "name": "FHIR Server",
+    "version": "1.4.0"
+  },
+  "implementation": {
+    "description": "FHIR Test Server (R4)"
+  },
+  "fhirVersion": "4.0.0",
+  "format": [
+    "application/fhir+json"
+  ],
+  "rest": [
+    {
+      "mode": "server",
+      "security": {
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "authorize",
+                "valueUri": "http://localhost:3000/authorize"
+              },
+              {
+                "url": "token",
+                "valueUri": "http://localhost:3000/token"
+              }
+            ],
+            "url": "http://fhir-registry.smarthealthit.org/StructureDefinition/oauth-uris"
+          }
+        ],
+        "cors": true,
+        "service": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/restful-security-service",
+                "code": "SMART-on-FHIR"
+              }
+            ],
+            "text": "Custom OAuth2 using SMART-on-FHIR profile (see http://docs.smarthealthit.org)"
+          }
+        ]
+      },
+      "resource": [
+        {
+          "type": "Account",
+          "profile": {
+            "reference": "http://hl7.org/fhir/Account.html"
+          },
+          "interaction": [
+            {
+              "code": "search-type"
+            },
+            {
+              "code": "read"
+            },
+            {
+              "code": "vread"
+            },
+            {
+              "code": "create"
+            },
+            {
+              "code": "update"
+            },
+            {
+              "code": "delete"
+            },
+            {
+              "code": "history-type"
+            },
+            {
+              "code": "history-instance"
+            }
+          ],
+          "conditionalDelete": "not-supported",
+          "searchParam": [
+            {
+              "name": "identifier",
+              "definition": "http://hl7.org/fhir/SearchParameter/Account-identifier",
+              "type": "token"
+            },
+            {
+              "name": "name",
+              "definition": "http://hl7.org/fhir/SearchParameter/Account-name",
+              "type": "string"
+            },
+            {
+              "name": "owner",
+              "definition": "http://hl7.org/fhir/SearchParameter/Account-owner",
+              "type": "reference"
+            },
+            {
+              "name": "patient",
+              "definition": "http://hl7.org/fhir/SearchParameter/Account-patient",
+              "type": "reference"
+            },
+            {
+              "name": "period",
+              "definition": "http://hl7.org/fhir/SearchParameter/Account-period",
+              "type": "date"
+            },
+            {
+              "name": "status",
+              "definition": "http://hl7.org/fhir/SearchParameter/Account-status",
+              "type": "token"
+            },
+            {
+              "name": "subject",
+              "definition": "http://hl7.org/fhir/SearchParameter/Account-subject",
+              "type": "reference"
+            },
+            {
+              "name": "type",
+              "definition": "http://hl7.org/fhir/SearchParameter/Account-type",
+              "type": "token"
+            },
+            {
+              "name": "_content",
+              "definition": "http://hl7.org/fhir/SearchParameter/Resource-content",
+              "type": "string"
+            },
+            {
+              "name": "_id",
+              "definition": "http://hl7.org/fhir/SearchParameter/Resource-id",
+              "type": "token"
+            },
+            {
+              "name": "_lastUpdated",
+              "definition": "http://hl7.org/fhir/SearchParameter/Resource-lastUpdated",
+              "type": "date"
+            },
+            {
+              "name": "_profile",
+              "definition": "http://hl7.org/fhir/SearchParameter/Resource-profile",
+              "type": "reference"
+            },
+            {
+              "name": "_query",
+              "definition": "http://hl7.org/fhir/SearchParameter/Resource-query",
+              "type": "token"
+            },
+            {
+              "name": "_security",
+              "definition": "http://hl7.org/fhir/SearchParameter/Resource-security",
+              "type": "token"
+            },
+            {
+              "name": "_source",
+              "definition": "http://hl7.org/fhir/SearchParameter/Resource-source",
+              "type": "uri"
+            },
+            {
+              "name": "_tag",
+              "definition": "http://hl7.org/fhir/SearchParameter/Resource-tag",
+              "type": "token"
+            },
+            {
+              "name": "_text",
+              "definition": "http://hl7.org/fhir/SearchParameter/DomainResource-text",
+              "type": "string"
+            }
+          ]
+        },
+        {
+          "type": "AllergyIntolerance",
+          "profile": {
+            "reference": "http://hl7.org/fhir/AllergyIntolerance.html"
+          },
+          "interaction": [
+            {
+              "code": "search-type"
+            },
+            {
+              "code": "read"
+            },
+            {
+              "code": "vread"
+            },
+            {
+              "code": "create"
+            },
+            {
+              "code": "update"
+            },
+            {
+              "code": "delete"
+            },
+            {
+              "code": "history-type"
+            },
+            {
+              "code": "history-instance"
+            }
+          ],
+          "conditionalDelete": "not-supported",
+          "searchParam": [
+            {
+              "name": "asserter",
+              "definition": "http://hl7.org/fhir/SearchParameter/AllergyIntolerance-asserter",
+              "type": "reference"
+            },
+            {
+              "name": "category",
+              "definition": "http://hl7.org/fhir/SearchParameter/AllergyIntolerance-category",
+              "type": "token"
+            },
+            {
+              "name": "clinical-status",
+              "definition": "http://hl7.org/fhir/SearchParameter/AllergyIntolerance-clinical-status",
+              "type": "token"
+            },
+            {
+              "name": "code",
+              "definition": "http://hl7.org/fhir/SearchParameter/clinical-code",
+              "type": "token"
+            },
+            {
+              "name": "criticality",
+              "definition": "http://hl7.org/fhir/SearchParameter/AllergyIntolerance-criticality",
+              "type": "token"
+            },
+            {
+              "name": "date",
+              "definition": "http://hl7.org/fhir/SearchParameter/clinical-date",
+              "type": "date"
+            },
+            {
+              "name": "identifier",
+              "definition": "http://hl7.org/fhir/SearchParameter/clinical-identifier",
+              "type": "token"
+            },
+            {
+              "name": "last-date",
+              "definition": "http://hl7.org/fhir/SearchParameter/AllergyIntolerance-last-date",
+              "type": "date"
+            },
+            {
+              "name": "manifestation",
+              "definition": "http://hl7.org/fhir/SearchParameter/AllergyIntolerance-manifestation",
+              "type": "token"
+            },
+            {
+              "name": "onset",
+              "definition": "http://hl7.org/fhir/SearchParameter/AllergyIntolerance-onset",
+              "type": "date"
+            },
+            {
+              "name": "patient",
+              "definition": "http://hl7.org/fhir/SearchParameter/clinical-patient",
+              "type": "reference"
+            },
+            {
+              "name": "recorder",
+              "definition": "http://hl7.org/fhir/SearchParameter/AllergyIntolerance-recorder",
+              "type": "reference"
+            },
+            {
+              "name": "route",
+              "definition": "http://hl7.org/fhir/SearchParameter/AllergyIntolerance-route",
+              "type": "token"
+            },
+            {
+              "name": "severity",
+              "definition": "http://hl7.org/fhir/SearchParameter/AllergyIntolerance-severity",
+              "type": "token"
+            },
+            {
+              "name": "type",
+              "definition": "http://hl7.org/fhir/SearchParameter/clinical-type",
+              "type": "token"
+            },
+            {
+              "name": "verification-status",
+              "definition": "http://hl7.org/fhir/SearchParameter/AllergyIntolerance-verification-status",
+              "type": "token"
+            },
+            {
+              "name": "_content",
+              "definition": "http://hl7.org/fhir/SearchParameter/Resource-content",
+              "type": "string"
+            },
+            {
+              "name": "_id",
+              "definition": "http://hl7.org/fhir/SearchParameter/Resource-id",
+              "type": "token"
+            },
+            {
+              "name": "_lastUpdated",
+              "definition": "http://hl7.org/fhir/SearchParameter/Resource-lastUpdated",
+              "type": "date"
+            },
+            {
+              "name": "_profile",
+              "definition": "http://hl7.org/fhir/SearchParameter/Resource-profile",
+              "type": "reference"
+            },
+            {
+              "name": "_query",
+              "definition": "http://hl7.org/fhir/SearchParameter/Resource-query",
+              "type": "token"
+            },
+            {
+              "name": "_security",
+              "definition": "http://hl7.org/fhir/SearchParameter/Resource-security",
+              "type": "token"
+            },
+            {
+              "name": "_source",
+              "definition": "http://hl7.org/fhir/SearchParameter/Resource-source",
+              "type": "uri"
+            },
+            {
+              "name": "_tag",
+              "definition": "http://hl7.org/fhir/SearchParameter/Resource-tag",
+              "type": "token"
+            },
+            {
+              "name": "_text",
+              "definition": "http://hl7.org/fhir/SearchParameter/DomainResource-text",
+              "type": "string"
+            }
+          ]
+        },
+        {
+          "type": "Claim",
+          "profile": {
+            "reference": "http://hl7.org/fhir/Claim.html"
+          },
+          "interaction": [
+            {
+              "code": "search-type"
+            },
+            {
+              "code": "read"
+            },
+            {
+              "code": "vread"
+            },
+            {
+              "code": "create"
+            },
+            {
+              "code": "update"
+            },
+            {
+              "code": "delete"
+            },
+            {
+              "code": "history-type"
+            },
+            {
+              "code": "history-instance"
+            }
+          ],
+          "conditionalDelete": "not-supported",
+          "searchParam": [
+            {
+              "name": "care-team",
+              "definition": "http://hl7.org/fhir/SearchParameter/Claim-care-team",
+              "type": "reference"
+            },
+            {
+              "name": "created",
+              "definition": "http://hl7.org/fhir/SearchParameter/Claim-created",
+              "type": "date"
+            },
+            {
+              "name": "detail-udi",
+              "definition": "http://hl7.org/fhir/SearchParameter/Claim-detail-udi",
+              "type": "reference"
+            },
+            {
+              "name": "encounter",
+              "definition": "http://hl7.org/fhir/SearchParameter/Claim-encounter",
+              "type": "reference"
+            },
+            {
+              "name": "enterer",
+              "definition": "http://hl7.org/fhir/SearchParameter/Claim-enterer",
+              "type": "reference"
+            },
+            {
+              "name": "facility",
+              "definition": "http://hl7.org/fhir/SearchParameter/Claim-facility",
+              "type": "reference"
+            },
+            {
+              "name": "identifier",
+              "definition": "http://hl7.org/fhir/SearchParameter/Claim-identifier",
+              "type": "token"
+            },
+            {
+              "name": "insurer",
+              "definition": "http://hl7.org/fhir/SearchParameter/Claim-insurer",
+              "type": "reference"
+            },
+            {
+              "name": "item-udi",
+              "definition": "http://hl7.org/fhir/SearchParameter/Claim-item-udi",
+              "type": "reference"
+            },
+            {
+              "name": "patient",
+              "definition": "http://hl7.org/fhir/SearchParameter/Claim-patient",
+              "type": "reference"
+            },
+            {
+              "name": "payee",
+              "definition": "http://hl7.org/fhir/SearchParameter/Claim-payee",
+              "type": "reference"
+            },
+            {
+              "name": "priority",
+              "definition": "http://hl7.org/fhir/SearchParameter/Claim-priority",
+              "type": "token"
+            },
+            {
+              "name": "procedure-udi",
+              "definition": "http://hl7.org/fhir/SearchParameter/Claim-procedure-udi",
+              "type": "reference"
+            },
+            {
+              "name": "provider",
+              "definition": "http://hl7.org/fhir/SearchParameter/Claim-provider",
+              "type": "reference"
+            },
+            {
+              "name": "status",
+              "definition": "http://hl7.org/fhir/SearchParameter/Claim-status",
+              "type": "token"
+            },
+            {
+              "name": "subdetail-udi",
+              "definition": "http://hl7.org/fhir/SearchParameter/Claim-subdetail-udi",
+              "type": "reference"
+            },
+            {
+              "name": "use",
+              "definition": "http://hl7.org/fhir/SearchParameter/Claim-use",
+              "type": "token"
+            },
+            {
+              "name": "_content",
+              "definition": "http://hl7.org/fhir/SearchParameter/Resource-content",
+              "type": "string"
+            },
+            {
+              "name": "_id",
+              "definition": "http://hl7.org/fhir/SearchParameter/Resource-id",
+              "type": "token"
+            },
+            {
+              "name": "_lastUpdated",
+              "definition": "http://hl7.org/fhir/SearchParameter/Resource-lastUpdated",
+              "type": "date"
+            },
+            {
+              "name": "_profile",
+              "definition": "http://hl7.org/fhir/SearchParameter/Resource-profile",
+              "type": "reference"
+            },
+            {
+              "name": "_query",
+              "definition": "http://hl7.org/fhir/SearchParameter/Resource-query",
+              "type": "token"
+            },
+            {
+              "name": "_security",
+              "definition": "http://hl7.org/fhir/SearchParameter/Resource-security",
+              "type": "token"
+            },
+            {
+              "name": "_source",
+              "definition": "http://hl7.org/fhir/SearchParameter/Resource-source",
+              "type": "uri"
+            },
+            {
+              "name": "_tag",
+              "definition": "http://hl7.org/fhir/SearchParameter/Resource-tag",
+              "type": "token"
+            },
+            {
+              "name": "_text",
+              "definition": "http://hl7.org/fhir/SearchParameter/DomainResource-text",
+              "type": "string"
+            }
+          ]
+        },
+        {
+          "type": "Organization",
+          "profile": {
+            "reference": "http://hl7.org/fhir/Organization.html"
+          },
+          "interaction": [
+            {
+              "code": "search-type"
+            },
+            {
+              "code": "read"
+            },
+            {
+              "code": "vread"
+            },
+            {
+              "code": "create"
+            },
+            {
+              "code": "update"
+            },
+            {
+              "code": "delete"
+            },
+            {
+              "code": "history-type"
+            },
+            {
+              "code": "history-instance"
+            }
+          ],
+          "conditionalDelete": "not-supported",
+          "searchParam": [
+            {
+              "name": "active",
+              "definition": "http://hl7.org/fhir/SearchParameter/Organization-active",
+              "type": "token"
+            },
+            {
+              "name": "address",
+              "definition": "http://hl7.org/fhir/SearchParameter/Organization-address",
+              "type": "string"
+            },
+            {
+              "name": "address-city",
+              "definition": "http://hl7.org/fhir/SearchParameter/Organization-address-city",
+              "type": "string"
+            },
+            {
+              "name": "address-country",
+              "definition": "http://hl7.org/fhir/SearchParameter/Organization-address-country",
+              "type": "string"
+            },
+            {
+              "name": "address-postalcode",
+              "definition": "http://hl7.org/fhir/SearchParameter/Organization-address-postalcode",
+              "type": "string"
+            },
+            {
+              "name": "address-state",
+              "definition": "http://hl7.org/fhir/SearchParameter/Organization-address-state",
+              "type": "string"
+            },
+            {
+              "name": "address-use",
+              "definition": "http://hl7.org/fhir/SearchParameter/Organization-address-use",
+              "type": "token"
+            },
+            {
+              "name": "endpoint",
+              "definition": "http://hl7.org/fhir/SearchParameter/Organization-endpoint",
+              "type": "reference"
+            },
+            {
+              "name": "identifier",
+              "definition": "http://hl7.org/fhir/SearchParameter/Organization-identifier",
+              "type": "token"
+            },
+            {
+              "name": "name",
+              "definition": "http://hl7.org/fhir/SearchParameter/Organization-name",
+              "type": "string"
+            },
+            {
+              "name": "partof",
+              "definition": "http://hl7.org/fhir/SearchParameter/Organization-partof",
+              "type": "reference"
+            },
+            {
+              "name": "phonetic",
+              "definition": "http://hl7.org/fhir/SearchParameter/Organization-phonetic",
+              "type": "string"
+            },
+            {
+              "name": "type",
+              "definition": "http://hl7.org/fhir/SearchParameter/Organization-type",
+              "type": "token"
+            },
+            {
+              "name": "_content",
+              "definition": "http://hl7.org/fhir/SearchParameter/Resource-content",
+              "type": "string"
+            },
+            {
+              "name": "_id",
+              "definition": "http://hl7.org/fhir/SearchParameter/Resource-id",
+              "type": "token"
+            },
+            {
+              "name": "_lastUpdated",
+              "definition": "http://hl7.org/fhir/SearchParameter/Resource-lastUpdated",
+              "type": "date"
+            },
+            {
+              "name": "_profile",
+              "definition": "http://hl7.org/fhir/SearchParameter/Resource-profile",
+              "type": "reference"
+            },
+            {
+              "name": "_query",
+              "definition": "http://hl7.org/fhir/SearchParameter/Resource-query",
+              "type": "token"
+            },
+            {
+              "name": "_security",
+              "definition": "http://hl7.org/fhir/SearchParameter/Resource-security",
+              "type": "token"
+            },
+            {
+              "name": "_source",
+              "definition": "http://hl7.org/fhir/SearchParameter/Resource-source",
+              "type": "uri"
+            },
+            {
+              "name": "_tag",
+              "definition": "http://hl7.org/fhir/SearchParameter/Resource-tag",
+              "type": "token"
+            },
+            {
+              "name": "_text",
+              "definition": "http://hl7.org/fhir/SearchParameter/DomainResource-text",
+              "type": "string"
+            }
+          ]
+        },
+        {
+          "type": "Condition",
+          "profile": {
+            "reference": "http://hl7.org/fhir/Condition.html"
+          },
+          "interaction": [
+            {
+              "code": "search-type"
+            },
+            {
+              "code": "read"
+            },
+            {
+              "code": "vread"
+            },
+            {
+              "code": "create"
+            },
+            {
+              "code": "update"
+            },
+            {
+              "code": "delete"
+            },
+            {
+              "code": "history-type"
+            },
+            {
+              "code": "history-instance"
+            }
+          ],
+          "conditionalDelete": "not-supported",
+          "searchParam": [
+            {
+              "name": "code",
+              "definition": "http://hl7.org/fhir/SearchParameter/clinical-code",
+              "type": "token"
+            },
+            {
+              "name": "identifier",
+              "definition": "http://hl7.org/fhir/SearchParameter/clinical-identifier",
+              "type": "token"
+            },
+            {
+              "name": "patient",
+              "definition": "http://hl7.org/fhir/SearchParameter/clinical-patient",
+              "type": "reference"
+            },
+            {
+              "name": "abatement-age",
+              "definition": "http://hl7.org/fhir/SearchParameter/Condition-abatement-age",
+              "type": "quantity"
+            },
+            {
+              "name": "abatement-date",
+              "definition": "http://hl7.org/fhir/SearchParameter/Condition-abatement-date",
+              "type": "date"
+            },
+            {
+              "name": "abatement-string",
+              "definition": "http://hl7.org/fhir/SearchParameter/Condition-abatement-string",
+              "type": "string"
+            },
+            {
+              "name": "asserter",
+              "definition": "http://hl7.org/fhir/SearchParameter/Condition-asserter",
+              "type": "reference"
+            },
+            {
+              "name": "body-site",
+              "definition": "http://hl7.org/fhir/SearchParameter/Condition-body-site",
+              "type": "token"
+            },
+            {
+              "name": "category",
+              "definition": "http://hl7.org/fhir/SearchParameter/Condition-category",
+              "type": "token"
+            },
+            {
+              "name": "clinical-status",
+              "definition": "http://hl7.org/fhir/SearchParameter/Condition-clinical-status",
+              "type": "token"
+            },
+            {
+              "name": "encounter",
+              "definition": "http://hl7.org/fhir/SearchParameter/Condition-encounter",
+              "type": "reference"
+            },
+            {
+              "name": "evidence",
+              "definition": "http://hl7.org/fhir/SearchParameter/Condition-evidence",
+              "type": "token"
+            },
+            {
+              "name": "evidence-detail",
+              "definition": "http://hl7.org/fhir/SearchParameter/Condition-evidence-detail",
+              "type": "reference"
+            },
+            {
+              "name": "onset-age",
+              "definition": "http://hl7.org/fhir/SearchParameter/Condition-onset-age",
+              "type": "quantity"
+            },
+            {
+              "name": "onset-date",
+              "definition": "http://hl7.org/fhir/SearchParameter/Condition-onset-date",
+              "type": "date"
+            },
+            {
+              "name": "onset-info",
+              "definition": "http://hl7.org/fhir/SearchParameter/Condition-onset-info",
+              "type": "string"
+            },
+            {
+              "name": "recorded-date",
+              "definition": "http://hl7.org/fhir/SearchParameter/Condition-recorded-date",
+              "type": "date"
+            },
+            {
+              "name": "severity",
+              "definition": "http://hl7.org/fhir/SearchParameter/Condition-severity",
+              "type": "token"
+            },
+            {
+              "name": "stage",
+              "definition": "http://hl7.org/fhir/SearchParameter/Condition-stage",
+              "type": "token"
+            },
+            {
+              "name": "subject",
+              "definition": "http://hl7.org/fhir/SearchParameter/Condition-subject",
+              "type": "reference"
+            },
+            {
+              "name": "verification-status",
+              "definition": "http://hl7.org/fhir/SearchParameter/Condition-verification-status",
+              "type": "token"
+            },
+            {
+              "name": "_content",
+              "definition": "http://hl7.org/fhir/SearchParameter/Resource-content",
+              "type": "string"
+            },
+            {
+              "name": "_id",
+              "definition": "http://hl7.org/fhir/SearchParameter/Resource-id",
+              "type": "token"
+            },
+            {
+              "name": "_lastUpdated",
+              "definition": "http://hl7.org/fhir/SearchParameter/Resource-lastUpdated",
+              "type": "date"
+            },
+            {
+              "name": "_profile",
+              "definition": "http://hl7.org/fhir/SearchParameter/Resource-profile",
+              "type": "reference"
+            },
+            {
+              "name": "_query",
+              "definition": "http://hl7.org/fhir/SearchParameter/Resource-query",
+              "type": "token"
+            },
+            {
+              "name": "_security",
+              "definition": "http://hl7.org/fhir/SearchParameter/Resource-security",
+              "type": "token"
+            },
+            {
+              "name": "_source",
+              "definition": "http://hl7.org/fhir/SearchParameter/Resource-source",
+              "type": "uri"
+            },
+            {
+              "name": "_tag",
+              "definition": "http://hl7.org/fhir/SearchParameter/Resource-tag",
+              "type": "token"
+            },
+            {
+              "name": "_text",
+              "definition": "http://hl7.org/fhir/SearchParameter/DomainResource-text",
+              "type": "string"
+            }
+          ]
+        },
+        {
+          "type": "Patient",
+          "profile": {
+            "reference": "http://hl7.org/fhir/Patient.html"
+          },
+          "interaction": [
+            {
+              "code": "search-type"
+            },
+            {
+              "code": "read"
+            },
+            {
+              "code": "vread"
+            },
+            {
+              "code": "create"
+            },
+            {
+              "code": "update"
+            },
+            {
+              "code": "delete"
+            },
+            {
+              "code": "history-type"
+            },
+            {
+              "code": "history-instance"
+            }
+          ],
+          "conditionalDelete": "not-supported",
+          "searchParam": [
+            {
+              "name": "active",
+              "definition": "http://hl7.org/fhir/SearchParameter/Patient-active",
+              "type": "token"
+            },
+            {
+              "name": "address",
+              "definition": "http://hl7.org/fhir/SearchParameter/individual-address",
+              "type": "string"
+            },
+            {
+              "name": "address-city",
+              "definition": "http://hl7.org/fhir/SearchParameter/individual-address-city",
+              "type": "string"
+            },
+            {
+              "name": "address-country",
+              "definition": "http://hl7.org/fhir/SearchParameter/individual-address-country",
+              "type": "string"
+            },
+            {
+              "name": "address-postalcode",
+              "definition": "http://hl7.org/fhir/SearchParameter/individual-address-postalcode",
+              "type": "string"
+            },
+            {
+              "name": "address-state",
+              "definition": "http://hl7.org/fhir/SearchParameter/individual-address-state",
+              "type": "string"
+            },
+            {
+              "name": "address-use",
+              "definition": "http://hl7.org/fhir/SearchParameter/individual-address-use",
+              "type": "token"
+            },
+            {
+              "name": "birthdate",
+              "definition": "http://hl7.org/fhir/SearchParameter/individual-birthdate",
+              "type": "date"
+            },
+            {
+              "name": "death-date",
+              "definition": "http://hl7.org/fhir/SearchParameter/Patient-death-date",
+              "type": "date"
+            },
+            {
+              "name": "deceased",
+              "definition": "http://hl7.org/fhir/SearchParameter/Patient-deceased",
+              "type": "token"
+            },
+            {
+              "name": "email",
+              "definition": "http://hl7.org/fhir/SearchParameter/individual-email",
+              "type": "token"
+            },
+            {
+              "name": "family",
+              "definition": "http://hl7.org/fhir/SearchParameter/individual-family",
+              "type": "string"
+            },
+            {
+              "name": "gender",
+              "definition": "http://hl7.org/fhir/SearchParameter/individual-gender",
+              "type": "token"
+            },
+            {
+              "name": "general-practitioner",
+              "definition": "http://hl7.org/fhir/SearchParameter/Patient-general-practitioner",
+              "type": "reference"
+            },
+            {
+              "name": "given",
+              "definition": "http://hl7.org/fhir/SearchParameter/individual-given",
+              "type": "string"
+            },
+            {
+              "name": "identifier",
+              "definition": "http://hl7.org/fhir/SearchParameter/Patient-identifier",
+              "type": "token"
+            },
+            {
+              "name": "language",
+              "definition": "http://hl7.org/fhir/SearchParameter/Patient-language",
+              "type": "token"
+            },
+            {
+              "name": "link",
+              "definition": "http://hl7.org/fhir/SearchParameter/Patient-link",
+              "type": "reference"
+            },
+            {
+              "name": "name",
+              "definition": "http://hl7.org/fhir/SearchParameter/Patient-name",
+              "type": "string"
+            },
+            {
+              "name": "organization",
+              "definition": "http://hl7.org/fhir/SearchParameter/Patient-organization",
+              "type": "reference"
+            },
+            {
+              "name": "phone",
+              "definition": "http://hl7.org/fhir/SearchParameter/individual-phone",
+              "type": "token"
+            },
+            {
+              "name": "phonetic",
+              "definition": "http://hl7.org/fhir/SearchParameter/individual-phonetic",
+              "type": "string"
+            },
+            {
+              "name": "telecom",
+              "definition": "http://hl7.org/fhir/SearchParameter/individual-telecom",
+              "type": "token"
+            },
+            {
+              "name": "_content",
+              "definition": "http://hl7.org/fhir/SearchParameter/Resource-content",
+              "type": "string"
+            },
+            {
+              "name": "_id",
+              "definition": "http://hl7.org/fhir/SearchParameter/Resource-id",
+              "type": "token"
+            },
+            {
+              "name": "_lastUpdated",
+              "definition": "http://hl7.org/fhir/SearchParameter/Resource-lastUpdated",
+              "type": "date"
+            },
+            {
+              "name": "_profile",
+              "definition": "http://hl7.org/fhir/SearchParameter/Resource-profile",
+              "type": "reference"
+            },
+            {
+              "name": "_query",
+              "definition": "http://hl7.org/fhir/SearchParameter/Resource-query",
+              "type": "token"
+            },
+            {
+              "name": "_security",
+              "definition": "http://hl7.org/fhir/SearchParameter/Resource-security",
+              "type": "token"
+            },
+            {
+              "name": "_source",
+              "definition": "http://hl7.org/fhir/SearchParameter/Resource-source",
+              "type": "uri"
+            },
+            {
+              "name": "_tag",
+              "definition": "http://hl7.org/fhir/SearchParameter/Resource-tag",
+              "type": "token"
+            },
+            {
+              "name": "_text",
+              "definition": "http://hl7.org/fhir/SearchParameter/DomainResource-text",
+              "type": "string"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
