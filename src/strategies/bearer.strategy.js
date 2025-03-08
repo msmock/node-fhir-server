@@ -11,6 +11,7 @@ const env = require('var');
  * Requires ENV variables for introspecting the token
  */
 module.exports.strategy = new Strategy(function (token, done) {
+
   if (!env.INTROSPECTION_URL) {
     return done(new Error('Invalid introspection endpoint.'));
   }

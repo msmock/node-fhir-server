@@ -412,6 +412,7 @@ let buildDstu2SearchQuery = (args) => {
  */
 module.exports.search = (args) =>
   new Promise((resolve, reject) => {
+
     logger.info('Patient >>> search');
 
     let { base_version } = args;
@@ -433,6 +434,8 @@ module.exports.search = (args) =>
     let collection = db.collection(`${COLLECTION.PATIENT}_${base_version}`);
     let Patient = getPatient(base_version);
 
+    // TODO: rewrite code -> https://www.mongodb.com/docs/drivers/node/current/usage-examples/find/
+
     // Query our collection for this observation
     collection
       .find(query)
@@ -449,8 +452,15 @@ module.exports.search = (args) =>
         logger.error('Error with Patient.search: ', err);
         return reject(handleError({ error: err }));
       });
+
   });
 
+/**
+ *
+ * @param {*} args
+ * @param {*} context
+ * @param {*} logger
+ */
 module.exports.searchById = (args) =>
   new Promise((resolve, reject) => {
     logger.info('Patient >>> searchById');
@@ -476,6 +486,12 @@ module.exports.searchById = (args) =>
       });
   });
 
+/**
+ *
+ * @param {*} args
+ * @param {*} context
+ * @param {*} logger
+ */
 module.exports.create = (args, { req }) =>
   new Promise((resolve, reject) => {
     logger.info('Patient >>> create');
@@ -535,6 +551,12 @@ module.exports.create = (args, { req }) =>
       });
   });
 
+/**
+ *
+ * @param {*} args
+ * @param {*} context
+ * @param {*} logger
+ */
 module.exports.update = (args, { req }) =>
   new Promise((resolve, reject) => {
     logger.info('Patient >>> update');
@@ -607,6 +629,12 @@ module.exports.update = (args, { req }) =>
       });
   });
 
+/**
+ *
+ * @param {*} args
+ * @param {*} context
+ * @param {*} logger
+ */
 module.exports.remove = (args, context) =>
   new Promise((resolve, reject) => {
     logger.info('Patient >>> remove');
@@ -646,6 +674,12 @@ module.exports.remove = (args, context) =>
       });
   });
 
+/**
+ *
+ * @param {*} args
+ * @param {*} context
+ * @param {*} logger
+ */
 module.exports.searchByVersionId = (args, context) =>
   new Promise((resolve, reject) => {
     logger.info('Patient >>> searchByVersionId');
@@ -672,6 +706,12 @@ module.exports.searchByVersionId = (args, context) =>
       });
   });
 
+/**
+ *
+ * @param {*} args
+ * @param {*} context
+ * @param {*} logger
+ */
 module.exports.history = (args, context) =>
   new Promise((resolve, reject) => {
     logger.info('Patient >>> history');
@@ -715,6 +755,12 @@ module.exports.history = (args, context) =>
       });
   });
 
+/**
+ *
+ * @param {*} args
+ * @param {*} context
+ * @param {*} logger
+ */
 module.exports.historyById = (args, context) =>
   new Promise((resolve, reject) => {
     logger.info('Patient >>> historyById');
@@ -758,6 +804,12 @@ module.exports.historyById = (args, context) =>
     });
   });
 
+/**
+ *
+ * @param {*} args
+ * @param {*} context
+ * @param {*} logger
+ */
 module.exports.patch = (args, context) =>
   new Promise((resolve, reject) => {
     logger.info('Patient >>> patch'); // Should this say update (instead of patch) because the end result is that of an update, not a patch
